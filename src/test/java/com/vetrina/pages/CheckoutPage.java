@@ -20,9 +20,9 @@ public class CheckoutPage extends BasePage{
 
     @FindBy(xpath = "//*[@id='cvc']") public WebElement cvc_Loc;
 
-    @FindBy(css = "#isConsentTextConfirmed") public WebElement mesafeliSatis_Loc;
+    @FindBy(xpath = "//*[@id='isDistanceSellingContactConfirmed']") public WebElement mesafeliSatis_Loc;
 
-    @FindBy(css = "#isDataPolicyConfirmed") public WebElement onBilgilendirme_Loc;
+    @FindBy(xpath = "//*[@id='isPreInformationConditionsConfirmed']") public WebElement onBilgilendirme_Loc;
 
     @FindBy(css = "#miniCart") public WebElement cartButton_Loc;
 

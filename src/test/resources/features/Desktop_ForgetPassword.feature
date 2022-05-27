@@ -1,9 +1,9 @@
 Feature: Desktop | Forget Password - The user tries to send forget password email
   @smoke
   Scenario: The user tries to send an email with empty inputs
-    Given The user visits GerryWeber homepage
+    Given The user visits JeansLab homepage
     And The user verifies redirected to homepage
-    And The user clicks "Giriş Yap" button
+    And The user clicks login button
     And The user clicks "Şifremi unuttum" button
     And The user verifies redirected to "/auth/forgot-password" page
     Then The user clicks "Şifremi Sıfırla" button

@@ -12,8 +12,8 @@ import org.junit.Assert;
 
 public class StepDefinitions {
 
-    @Given("The user visits GerryWeber homepage")
-    public void the_user_visits_GerryWeber_homepage() {
+    @Given("The user visits Vetrina homepage")
+    public void the_user_visits_Vetrina_homepage() {
         new HomePage().gotoHomePage();
         BrowserUtils.waitFor(1);
     }
@@ -26,6 +26,13 @@ public class StepDefinitions {
     @Given("The user enters valid credentials")
     public void the_user_enters_valid_credentials() {
         new HomePage().login();
+    }
+
+    @When("The user clicks login button")
+    public void the_user_clicks_login_button() {
+        BrowserUtils.waitFor(1);
+        new HomePage().loginBtn_Loc.click();
+        BrowserUtils.waitFor(2);
     }
 
     @When("The user verifies redirected to {string} page")
@@ -71,6 +78,11 @@ public class StepDefinitions {
     @When("The user clicks anyone product")
     public void the_user_clicks_anyone_product() {
         new CategoryAndProductPage().clickProductRandom();
+    }
+
+    @When("The user clicks hearth button")
+    public void the_user_clicks_hearth_button() {
+        new CategoryAndProductPage().hearthBtn();
     }
 
     @When("The user verifies {string} message")
@@ -127,16 +139,6 @@ public class StepDefinitions {
     public void theUserClicksCartButton() {
         new CheckoutPage().cartButton();
     }
-
-    @And("The user closes popUps")
-    public void theUserClosesPopUps() {
-        new CategoryAndProductPage().closePopUps();
-    }
-
-    @And("The user hovers to product")
-    public void theUserHoversToProduct() {
-        new CategoryAndProductPage().hoverToProduct();
-    }
     @And("The user enters wrong old password")
     public void theUserEntersWrongOldPassword() {
         new AccountPage().wrongOldPassword();
@@ -146,4 +148,5 @@ public class StepDefinitions {
     public void theUserEntersDifferentPasswords() {
         new AccountPage().differentPassword();
     }
+
 }

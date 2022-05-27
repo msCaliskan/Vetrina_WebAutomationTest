@@ -3,12 +3,12 @@ Feature: Desktop | The user adds new address and delete
   @smoke
   Scenario: Add new address and delete
 
-    Given The user visits GerryWeber homepage
+    Given The user visits JeansLab homepage
     And The user verifies redirected to homepage
-    And The user clicks "Giriş Yap" button
+    And The user clicks login button
     When The user enters valid credentials
     And The user clicks "Giriş Yap" buttonn
-    And The user clicks "Hesabım" button
+    And The user clicks login button
     Then The user clicks "Adreslerim" button
     And The user verifies redirected to "/account/addresses" page
     And The user verifies "Kayıtlı adresiniz bulunmamaktadır." message
@@ -18,6 +18,6 @@ Feature: Desktop | The user adds new address and delete
     And The user clicks "Sil" button
     And The user verifies "Kayıtlı adresiniz bulunmamaktadır." message
     And The user clicks "Çıkış Yap" button
-    And The user verifies redirected to "/tr-TR" page
+    And The user verifies redirected to homepage
 
 

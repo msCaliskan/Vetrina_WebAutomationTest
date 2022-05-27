@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class AccountPage extends BasePage{
@@ -27,15 +28,11 @@ public class AccountPage extends BasePage{
 
     @FindBy(css = "#title") public WebElement adresBasligi_Loc;
 
-    @FindBy(css = "#countryId") public WebElement ulke_Loc;
-
     @FindBy(css = "#cityId") public WebElement sehir_Loc;
 
     @FindBy(css = "#countyId") public WebElement ilce_Loc;
 
     @FindBy(xpath = "//*[contains(@class, 'MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root')]") public List<WebElement> dataList_Loc;
-
-    @FindBy(xpath = "//*[contains(@class, 'MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root')]") public WebElement ulke_Loc2;
 
     @FindBy(css = "#zipPostalCode") public WebElement postaKodu_Loc;
 
@@ -62,7 +59,6 @@ public class AccountPage extends BasePage{
 
         BrowserUtils.waitFor(2);
     }
-
     public void wrongOldPassword(){
         gecerliSifre_Loc.sendKeys("Inveon34..");
         yeniSifre_Loc.sendKeys("Inveon34.");
@@ -88,10 +84,6 @@ public class AccountPage extends BasePage{
         email_Loc.sendKeys(ConfigurationReader.get("user_email"));
         telefon_Loc.click();
         telefon_Loc.sendKeys(ConfigurationReader.get("user_phone1"));
-        postaKodu_Loc.click();
-        postaKodu_Loc.sendKeys("34340");
-        tcKimlik_Loc.click();
-        tcKimlik_Loc.sendKeys(ConfigurationReader.get("user_identifier"));
         BrowserUtils.waitFor(1);
 
         sehir_Loc.click();
@@ -118,6 +110,12 @@ public class AccountPage extends BasePage{
                 break;
             }
         }
+
+        postaKodu_Loc.click();
+        postaKodu_Loc.sendKeys("34340");
+        tcKimlik_Loc.click();
+        tcKimlik_Loc.sendKeys(ConfigurationReader.get("user_identifier"));
+        BrowserUtils.waitFor(1);
         adres_Loc.sendKeys("Levent, HAN Spaces, Nispetiye Cd No:24");
 
     }
@@ -133,11 +131,6 @@ public class AccountPage extends BasePage{
         telefon_Loc.click();
         telefon_Loc.sendKeys(ConfigurationReader.get("user_phone1"));
         BrowserUtils.waitFor(1);
-        postaKodu_Loc.click();
-        postaKodu_Loc.sendKeys("34340");
-        tcKimlik_Loc.click();
-        tcKimlik_Loc.sendKeys(ConfigurationReader.get("user_identifier"));
-        BrowserUtils.waitFor(1);
 
         sehir_Loc.click();
         BrowserUtils.waitFor(1);
@@ -163,6 +156,12 @@ public class AccountPage extends BasePage{
                 break;
             }
         }
+
+        postaKodu_Loc.click();
+        postaKodu_Loc.sendKeys("34340");
+        tcKimlik_Loc.click();
+        tcKimlik_Loc.sendKeys(ConfigurationReader.get("user_identifier"));
+        BrowserUtils.waitFor(1);
         adres_Loc.sendKeys("Levent, HAN Spaces, Nispetiye Cd No:24");
 
     }

@@ -4,7 +4,6 @@ import com.vetrina.utilities.BrowserUtils;
 import com.vetrina.utilities.ConfigurationReader;
 import com.vetrina.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +11,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage{
 
-    @FindBy(xpath = "(//*[contains(@class,'MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium')])[2]") public WebElement close_Loc;
+    @FindBy(xpath = "//*[text()='Kabul Ediyorum']") public WebElement cookies_Loc;
+
+    @FindBy(css = "#myAccount") public WebElement loginBtn_Loc;
 
     @FindBy(css = "#email") public WebElement email_Loc;
 
@@ -20,18 +21,10 @@ public class HomePage extends BasePage{
 
     @FindBy(css = "#mui-1") public WebElement searchBox_Loc;
 
-
     public void gotoHomePage(){
         Driver.get().get(ConfigurationReader.get("url"));
-        BrowserUtils.waitFor(2);
-
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
-        WebElement accept = (WebElement) jse.executeScript("return document.querySelector('#usercentrics-root').shadowRoot.querySelector('#focus-lock-id > div.sc-furwcr.kbclTA > div > div.sc-ikJyIC.jegfVy > div > div > div.sc-dlVxhl.bEDIID > div > button:nth-child(5)')");
-
-       BrowserUtils.clickWithJS(accept);
-       BrowserUtils.waitFor(1);
-       close_Loc.click();
-
+        BrowserUtils.waitForClickablility(cookies_Loc,5);
+        cookies_Loc.click();
     }
 
     public void login(){
@@ -39,12 +32,11 @@ public class HomePage extends BasePage{
     String password = ConfigurationReader.get("user_password");
 
     email_Loc.sendKeys(email);
-    BrowserUtils.waitFor(1);
     password_Loc.sendKeys(password);
     }
 
     public static void checkHomePage(){
-        String expectedUrl ="https://www.gerryweber.com.tr/";
+        String expectedUrl ="https://www.vetrinaturkiye.com/";
         String actualUrl = Driver.get().getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
     }
@@ -53,7 +45,6 @@ public class HomePage extends BasePage{
         searchBox_Loc.sendKeys(string+ Keys.ENTER);
 
         BrowserUtils.waitFor(1);
-
     }
 
     public void invalidEmailCheck(){

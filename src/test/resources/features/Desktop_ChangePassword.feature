@@ -2,13 +2,12 @@
 Feature: Desktop | Change password of the account
 
   Background:
-
-    Given The user visits GerryWeber homepage
+    Given The user visits JeansLab homepage
     And The user verifies redirected to homepage
-    And The user clicks "Giriş Yap" button
+    And The user clicks login button
     And The user enters valid credentials
     And The user clicks "Giriş Yap" buttonn
-    And The user clicks "Hesabım" button
+    And The user clicks login button
     And The user clicks "Şifre Değiştir" button
     And The user verifies redirected to "/account/change-password" page
 
@@ -18,7 +17,7 @@ Feature: Desktop | Change password of the account
     And The user clicks "Bilgilerimi Kaydet" button
     Then The user verifies "Şifreniz başarıyla değiştirilmiştir." message
     And The user clicks "Çıkış Yap" button
-    And The user verifies redirected to "/tr-TR" page
+    And The user verifies redirected to homepage
 
   Scenario: The user enters wrong old password
 
@@ -26,7 +25,7 @@ Feature: Desktop | Change password of the account
     And The user clicks "Bilgilerimi Kaydet" button
     Then The user verifies "Girmiş olduğunuz parola eski parola ile uyuşmamaktadır." message
     And The user clicks "Çıkış Yap" button
-    And The user verifies redirected to "/tr-TR" page
+    And The user verifies redirected to homepage
 
   Scenario: The user enters different new and confirm new passwords
 
@@ -34,6 +33,4 @@ Feature: Desktop | Change password of the account
     And The user clicks "Bilgilerimi Kaydet" button
     Then The user verifies "Girilen şifreler birbiriyle aynı olmalıdır." message
     And The user clicks "Çıkış Yap" button
-    And The user verifies redirected to "/tr-TR" page
-
-
+    And The user verifies redirected to homepage

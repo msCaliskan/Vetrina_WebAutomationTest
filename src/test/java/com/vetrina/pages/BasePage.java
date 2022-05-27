@@ -20,7 +20,7 @@ public abstract class BasePage {
 
     public static void verifyUrl(String expectedURL) {
         String actualTitle = Driver.get().getCurrentUrl();
-        actualTitle = actualTitle.replace("https://www.gerryweber.com.tr","");
+        actualTitle = actualTitle.replace("https://www.jeanslab.com","");
         Assert.assertEquals(expectedURL,actualTitle);
     }
 
@@ -37,7 +37,7 @@ public abstract class BasePage {
     BrowserUtils.waitFor(2);
     }
     public static void clickButton2(String button){
-        String button_Loc = "(//*[text()='"+button+"'])[3]";
+        String button_Loc = "(//*[text()='"+button+"'])[2]";
         BrowserUtils.waitForClickablility(Driver.get().findElement(By.xpath(button_Loc)),5);
         Driver.get().findElement(By.xpath(button_Loc)).click();
         BrowserUtils.waitFor(1);
@@ -70,7 +70,6 @@ public abstract class BasePage {
             BrowserUtils.waitForVisibility(By.xpath(moduleLocator), 5);
             BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath(moduleLocator)));
             Driver.get().findElement(By.xpath(moduleLocator)).click();
-            BrowserUtils.waitFor(2);
         } catch (Exception e) {
             BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
 
