@@ -20,16 +20,16 @@ public class CheckoutPage extends BasePage{
 
     @FindBy(xpath = "//*[@id='cvc']") public WebElement cvc_Loc;
 
-    @FindBy(xpath = "//*[@id='isDistanceSellingContactConfirmed']") public WebElement mesafeliSatis_Loc;
+    @FindBy(xpath = "//*[@id='isConsentTextConfirmed']") public WebElement mesafeliSatis_Loc;
 
-    @FindBy(xpath = "//*[@id='isPreInformationConditionsConfirmed']") public WebElement onBilgilendirme_Loc;
+    @FindBy(xpath = "//*[@id='isDataPolicyConfirmed']") public WebElement onBilgilendirme_Loc;
 
     @FindBy(css = "#miniCart") public WebElement cartButton_Loc;
 
 
     public void invalidCard(){
         kartNo_Loc.sendKeys("4444444444444444");
-        adSoyad_Loc.sendKeys("Musa Çalışkan");
+        adSoyad_Loc.sendKeys("Musa Caliskan");
 
         BrowserUtils.waitFor(1);
 

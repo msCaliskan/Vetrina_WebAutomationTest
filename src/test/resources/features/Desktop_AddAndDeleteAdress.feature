@@ -3,7 +3,7 @@ Feature: Desktop | The user adds new address and delete
   @smoke
   Scenario: Add new address and delete
 
-    Given The user visits JeansLab homepage
+    Given The user visits Vetrina homepage
     And The user verifies redirected to homepage
     And The user clicks login button
     When The user enters valid credentials

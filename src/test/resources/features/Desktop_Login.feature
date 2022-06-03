@@ -1,4 +1,4 @@
-@smoke1
+@smoke
 Feature: Desktop | Login with valid and invalid credentials
 
   Background:

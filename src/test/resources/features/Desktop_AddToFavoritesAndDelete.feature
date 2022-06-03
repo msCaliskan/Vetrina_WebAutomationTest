@@ -2,15 +2,16 @@ Feature: Desktop | Add to favorites and delete
   @smoke
   Scenario: The user can add to favorites and delete
 
-    Given The user visits JeansLab homepage
+    Given The user visits Vetrina homepage
     And The user verifies redirected to homepage
     And The user clicks login button
     When The user enters valid credentials
     And The user clicks "Giriş Yap" buttonn
-    And The user navigates to "ERKEK" "JEAN" category
-    When The user verifies redirected to "/erkek-giyim-jean" page
+    And The user navigates to "Erkek" "Loafer" category
+    When The user verifies redirected to "/erkek-ayakkabi-loafer" page
     And The user clicks anyone product
     And The user clicks hearth button
+    And The user closes popUps
     And The user clicks login button
     Then The user clicks "Favori Listem" button
     And The user verifies redirected to "/account/favorites" page
