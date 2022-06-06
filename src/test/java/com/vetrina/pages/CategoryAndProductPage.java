@@ -3,6 +3,7 @@ package com.vetrina.pages;
 import com.vetrina.utilities.BrowserUtils;
 import com.vetrina.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,6 +22,12 @@ public class CategoryAndProductPage extends BasePage {
     @FindBy(xpath = "//*[@class='MuiTypography-root jss140 MuiTypography-body1']") public List<WebElement> productName_Loc;
 
     @FindBy(xpath = "(//*[@fill='#2C2B2B'])[10]") public WebElement popUp_Loc;
+
+    @FindBy(xpath = "(//*[@fill='#2C2B2B'])[9]") public WebElement popUpp_Loc;
+
+    @FindBy(xpath = "//*[@class='MuiTypography-root MuiTypography-body3 css-gg0uaj']") public WebElement price_Loc;
+
+    @FindBy(xpath = "//*[@name='price']") public WebElement priceHolder_Loc;
 
     public void clickProductRandom(){
 
@@ -61,5 +68,29 @@ public class CategoryAndProductPage extends BasePage {
         BrowserUtils.waitForClickablility(popUp_Loc,5);
         popUp_Loc.click();
         BrowserUtils.waitFor(1);
+    }
+
+    public void closePopUpp(){
+        BrowserUtils.waitForClickablility(popUpp_Loc,5);
+        popUpp_Loc.click();
+        BrowserUtils.waitFor(1);
+    }
+
+    public void validPrice(){
+        String price = price_Loc.getText();
+        String a = price.substring(0, price.length()-6);
+
+        if(a.contains(".")){
+            a = a.replace(".","");
+        }
+        int b = Integer.parseInt(a);
+        int c= b-5;
+
+        priceHolder_Loc.sendKeys(Keys.CONTROL+"a");
+        priceHolder_Loc.sendKeys(Keys.DELETE);
+        BrowserUtils.waitFor(1);
+        priceHolder_Loc.sendKeys(Integer.toString(c));
+        BrowserUtils.waitFor(2);
+
     }
 }

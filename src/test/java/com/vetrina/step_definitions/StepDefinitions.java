@@ -148,4 +148,18 @@ public class StepDefinitions {
     public void theUserClosesPopUps() {
         new CategoryAndProductPage().closePopUp();
     }
+
+    @And("The user enters valid price")
+    public void theUserEntersValidPrice() {
+        new CategoryAndProductPage().validPrice();
+    }
+    @And("The user remove product")
+    public void theUserRemoveProduct() {
+        new AccountPage().removeProduct();
+    }
+
+    @And("The user closess popUps")
+    public void theUserClosessPopUps() {
+        new CategoryAndProductPage().closePopUpp();
+    }
 }
