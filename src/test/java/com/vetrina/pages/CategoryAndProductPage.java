@@ -77,13 +77,9 @@ public class CategoryAndProductPage extends BasePage {
     }
 
     public void validPrice(){
-        String price = price_Loc.getText();
-        String a = price.substring(0, price.length()-6);
+        String price = priceHolder_Loc.getAttribute("value");
 
-        if(a.contains(".")){
-            a = a.replace(".","");
-        }
-        int b = Integer.parseInt(a);
+        int b = Integer.parseInt(price);
         int c= b-5;
 
         priceHolder_Loc.sendKeys(Keys.CONTROL+"a");
