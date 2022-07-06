@@ -130,7 +130,7 @@ public class AccountPage extends BasePage{
 
 
         BrowserUtils.waitFor(1);
-        adres_Loc.sendKeys("Levent, HAN Spaces, Nispetiye Cd No:24");
+        adres_Loc.sendKeys("test test test");
 
     }
     public void removeProduct(){
