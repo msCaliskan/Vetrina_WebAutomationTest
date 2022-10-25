@@ -17,22 +17,19 @@ public class HomePage extends BasePage{
 
     @FindBy(css = "#email") public WebElement email_Loc;
 
-    @FindBy(css = "#password") public WebElement password_Loc;
-
     @FindBy(css = "#mui-1") public WebElement searchBox_Loc;
 
     public void gotoHomePage(){
         Driver.get().get(ConfigurationReader.get("url"));
         BrowserUtils.waitForClickablility(cookies_Loc,5);
         cookies_Loc.click();
+        BrowserUtils.waitFor(1);
     }
 
-    public void login(){
-    String email = ConfigurationReader.get("user_email");
-    String password = ConfigurationReader.get("user_password");
-
-    email_Loc.sendKeys(email);
-    password_Loc.sendKeys(password);
+    public void clickLoginButton(){
+        BrowserUtils.waitForClickablility(loginBtn_Loc,5);
+        loginBtn_Loc.click();
+        BrowserUtils.waitFor(1);
     }
 
     public static void checkHomePage(){
@@ -46,14 +43,4 @@ public class HomePage extends BasePage{
 
         BrowserUtils.waitFor(1);
     }
-
-    public void invalidEmailCheck(){
-        email_Loc.sendKeys(ConfigurationReader.get("guest_email"));
-        password_Loc.sendKeys(ConfigurationReader.get("user_password"));
-    }
-    public void invalidPasswordCheck(){
-       email_Loc.sendKeys(ConfigurationReader.get("user_email"));
-       password_Loc.sendKeys("Inveon34...");
-    }
-
 }

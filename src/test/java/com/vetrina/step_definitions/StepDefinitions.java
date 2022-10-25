@@ -1,7 +1,6 @@
 package com.vetrina.step_definitions;
 
 import com.vetrina.pages.*;
-import com.vetrina.utilities.BrowserUtils;
 import com.vetrina.utilities.ConfigurationReader;
 import com.vetrina.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -11,12 +10,19 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class StepDefinitions {
+    
+    AccountPage accountPage = new AccountPage();
+    AddressPage addressPage = new AddressPage();
+    CategoryAndProductPage categoryAndProductPage = new CategoryAndProductPage();
+    ChangePasswordPage changePasswordPage = new ChangePasswordPage();
+    CheckoutPage checkoutPage = new CheckoutPage();
+    HomePage homePage = new HomePage();
+    LoginPage loginPage = new LoginPage();
+    OrderTrackingPage orderTrackingPage = new OrderTrackingPage();
+    PriceSubscriptionPage priceSubscriptionPage = new PriceSubscriptionPage();
 
     @Given("The user visits Vetrina homepage")
-    public void the_user_visits_Vetrina_homepage() {
-        new HomePage().gotoHomePage();
-        BrowserUtils.waitFor(1);
-    }
+    public void the_user_visits_Vetrina_homepage() { homePage.gotoHomePage(); }
 
     @And("The user verifies redirected to homepage")
     public void the_user_verifies_redirected_to_homepage() {
@@ -25,14 +31,12 @@ public class StepDefinitions {
 
     @Given("The user enters valid credentials")
     public void the_user_enters_valid_credentials() {
-        new HomePage().login();
+        loginPage.login();
     }
 
     @When("The user clicks login button")
     public void the_user_clicks_login_button() {
-        BrowserUtils.waitFor(1);
-        new HomePage().loginBtn_Loc.click();
-        BrowserUtils.waitFor(2);
+        homePage.clickLoginButton();
     }
 
     @When("The user verifies redirected to {string} page")
@@ -42,7 +46,7 @@ public class StepDefinitions {
 
     @When("The user checks {string}, {string}, {string} and {string} informations")
     public void the_user_checks_and_informations(String name, String lastName, String email, String phone) {
-        new AccountPage().getInformation(name,lastName,email,phone);
+        accountPage.getInformation(name,lastName,email,phone);
     }
 
     @When("The user clicks {string} button")
@@ -57,12 +61,12 @@ public class StepDefinitions {
 
     @When("The user enters old, new and confirm new password")
     public void the_user_enters_old_new_and_confirm_new_password() {
-        new AccountPage().changePassword();
+        changePasswordPage.changePassword();
     }
 
     @When("The user enters valid informations")
     public void the_user_enters_valid_informations() {
-      new AccountPage().enterAdress();
+      addressPage.enterAdress();
     }
 
     @Given("The user navigates to {string} {string} category")
@@ -70,14 +74,14 @@ public class StepDefinitions {
         BasePage.navigateToModule(tab,module);
     }
 
-    @When("The user clicks anyone product")
-    public void the_user_clicks_anyone_product() {
-        new CategoryAndProductPage().clickProductRandom();
+    @When("The user clicks any product")
+    public void the_user_clicks_any_product() {
+        categoryAndProductPage.clickProductRandom();
     }
 
     @When("The user clicks hearth button")
     public void the_user_clicks_hearth_button() {
-        new CategoryAndProductPage().hearthBtn();
+        categoryAndProductPage.hearthBtn();
     }
 
     @When("The user verifies {string} message")
@@ -85,19 +89,19 @@ public class StepDefinitions {
         Assert.assertEquals(message.trim(), BasePage.verifyMessage(message));
     }
 
-    @When("The user chooses color and size")
-    public void the_user_chooses_color_and_size() {
-        new CategoryAndProductPage().selectSize();
+    @When("The user chooses size")
+    public void the_user_chooses_size() {
+        categoryAndProductPage.selectSize();
     }
 
     @When("The user enters invalid informations")
     public void the_user_enters_invalid_informations() {
-        new CheckoutPage().invalidCard();
+        checkoutPage.invalidCard();
     }
 
     @When("The user selects On Bilgilendirme and Mesafeli Satis Sozlesmesi buttons")
     public void the_user_selects_On_Bilgilendirme_and_Mesafeli_Satis_Sozlesmesi_buttons() {
-        new CheckoutPage().checkBox();
+        checkoutPage.checkBox();
     }
 
     @Then("The user clicks Back button")
@@ -107,59 +111,69 @@ public class StepDefinitions {
 
     @Then("The user enters forget password email address")
     public void the_user_enters_forget_password_email_address() {
-        new HomePage().email_Loc.sendKeys(ConfigurationReader.get("user_email"));
+        homePage.email_Loc.sendKeys(ConfigurationReader.get("user_email"));
 
     }
     @Given("The user fills {string} in the searchbox and click")
     public void the_user_fills_in_the_searchbox_and_click(String string) {
-        new HomePage().searchBox(string);
+        homePage.searchBox(string);
     }
 
     @Then("The user should see all search results match with {string}")
     public void the_user_should_see_all_search_results_match_with(String string) {
-        new CategoryAndProductPage().searchResult(string);
+        categoryAndProductPage.searchResult(string);
     }
 
     @And("The user enters invalid email")
     public void theUserEntersInvalidEmail() {
-        new HomePage().invalidEmailCheck();
+        loginPage.invalidEmailCheck();
     }
 
     @And("The user enters invalid password")
     public void theUserEntersInvalidPassword() {
-        new HomePage().invalidPasswordCheck();
+        loginPage.invalidPasswordCheck();
     }
 
     @And("The user clicks Cart button")
     public void theUserClicksCartButton() {
-        new CheckoutPage().cartButton();
+        checkoutPage.cartButton();
     }
     @And("The user enters wrong old password")
     public void theUserEntersWrongOldPassword() {
-        new AccountPage().wrongOldPassword();
+        changePasswordPage.wrongOldPassword();
     }
 
     @And("The user enters different passwords")
     public void theUserEntersDifferentPasswords() {
-        new AccountPage().differentPassword();
+        changePasswordPage.differentPassword();
     }
 
     @And("The user closes popUps")
     public void theUserClosesPopUps() {
-        new CategoryAndProductPage().closePopUp();
+        categoryAndProductPage.closePopUp();
     }
 
     @And("The user enters valid price")
     public void theUserEntersValidPrice() {
-        new CategoryAndProductPage().validPrice();
+        categoryAndProductPage.validPrice();
     }
     @And("The user remove product")
     public void theUserRemoveProduct() {
-        new AccountPage().removeProduct();
+        priceSubscriptionPage.removeProduct();
     }
 
     @And("The user closess popUps")
     public void theUserClosessPopUps() {
-        new CategoryAndProductPage().closePopUpp();
+        categoryAndProductPage.closePopUpp();
+    }
+
+    @And("The user clicks {string} button with JS")
+    public void theUserClicksButtonWithJS(String button) {
+        BasePage.clickWithJS(button);
+    }
+
+    @And("The user enters informations")
+    public void theUserEntersInformations() {
+        orderTrackingPage.enterInformations();
     }
 }

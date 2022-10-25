@@ -9,7 +9,7 @@ Feature: Desktop | Add to favorites and delete
     And The user clicks "Giriş Yap" buttonn
     And The user navigates to "Erkek" "Loafer" category
     When The user verifies redirected to "/erkek-ayakkabi-loafer" page
-    And The user clicks anyone product
+    And The user clicks any product
     And The user clicks hearth button
     And The user closes popUps
     And The user clicks login button

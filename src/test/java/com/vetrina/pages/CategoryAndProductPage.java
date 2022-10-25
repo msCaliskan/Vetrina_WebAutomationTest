@@ -15,6 +15,8 @@ public class CategoryAndProductPage extends BasePage {
 
     @FindBy(xpath = "//*[contains(@class,'MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-sm-3 MuiGrid-grid-md-3')]") public List<WebElement> prodList_Loc;
 
+    @FindBy(xpath = "//*[contains(@class,'MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter')]") public List<WebElement> product_Loc;
+
     @FindBy(xpath = "//button[contains(@class, 'MuiButtonBase-root has-stock')]") public List<WebElement> sizeList_Loc;
 
     @FindBy(xpath = "//button[contains(@aria-label,'add-to-favorites')]") public WebElement hearthBtn_Loc;
@@ -29,6 +31,7 @@ public class CategoryAndProductPage extends BasePage {
 
     @FindBy(xpath = "//*[@name='price']") public WebElement priceHolder_Loc;
 
+    static String productName="";
     public void clickProductRandom(){
 
         Random rn = new Random();
@@ -37,6 +40,7 @@ public class CategoryAndProductPage extends BasePage {
         BrowserUtils.waitFor(1);
         BrowserUtils.hover(prodList_Loc.get(a));
         BrowserUtils.waitFor(1);
+        productName = product_Loc.get(a).getText();
         prodList_Loc.get(a).click();
         BrowserUtils.waitFor(1);
     }

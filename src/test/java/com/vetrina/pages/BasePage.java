@@ -16,8 +16,6 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.get(), this);
     }
 
-
-
     public static void verifyUrl(String expectedURL) {
         String actualTitle = Driver.get().getCurrentUrl();
         actualTitle = actualTitle.replace("https://www.vetrinaturkiye.com","");
@@ -42,7 +40,12 @@ public abstract class BasePage {
         Driver.get().findElement(By.xpath(button_Loc)).click();
         BrowserUtils.waitFor(1);
     }
-
+    public static void clickWithJS(String button){
+        String button_Loc = "//*[text()='"+button+"']";
+        BrowserUtils.waitForClickablility(Driver.get().findElement(By.xpath(button_Loc)),5);
+        BrowserUtils.clickWithJS(Driver.get().findElement(By.xpath(button_Loc)));
+        BrowserUtils.waitFor(2);
+    }
 
     /**
      * This method will navigate user to the specific module in useinsider application.

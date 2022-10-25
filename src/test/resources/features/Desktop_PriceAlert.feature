@@ -9,7 +9,7 @@ Feature: Desktop | Price Alert
     And The user clicks "Giriş Yap" buttonn
     And The user navigates to "Erkek" "Loafer" category
     When The user verifies redirected to "/erkek-ayakkabi-loafer" page
-    And The user clicks anyone product
+    And The user clicks any product
     Then The user clicks "Fiyatı Düşünce Haber Ver" button
     And The user enters valid price
     Then The user clicks "Kaydet" button
