@@ -176,4 +176,9 @@ public class StepDefinitions {
     public void theUserEntersInformations() {
         orderTrackingPage.enterInformations();
     }
+
+    @And("The user chooses {string} value")
+    public void theUserChoosesValue(String value) {
+        categoryAndProductPage.chooseValue(value);
+    }
 }

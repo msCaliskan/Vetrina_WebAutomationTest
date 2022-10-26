@@ -27,7 +27,7 @@ public class CategoryAndProductPage extends BasePage {
 
     @FindBy(xpath = "(//*[@fill='#2C2B2B'])[9]") public WebElement popUpp_Loc;
 
-    @FindBy(xpath = "//*[@class='MuiTypography-root MuiTypography-body3 css-gg0uaj']") public WebElement price_Loc;
+    @FindBy(xpath = "//*[contains(@class, 'MuiTypography-root MuiTypography-body1 MuiFormControlLabel')]") public List<WebElement> values_Loc;
 
     @FindBy(xpath = "//*[@name='price']") public WebElement priceHolder_Loc;
 
@@ -92,5 +92,17 @@ public class CategoryAndProductPage extends BasePage {
         priceHolder_Loc.sendKeys(Integer.toString(c));
         BrowserUtils.waitFor(2);
 
+    }
+
+    public void chooseValue(String value){
+
+        for (int i = 0; i < values_Loc.size(); i++) {
+             if (values_Loc.get(i).getText().equals(value)){
+                 values_Loc.get(i).click();
+                 break;
+             }
+
+        }
+        BrowserUtils.waitFor(1);
     }
 }
