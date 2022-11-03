@@ -62,8 +62,9 @@ public class CategoryAndProductPage extends BasePage {
         }
     }
     public void hearthBtn(){
+        BrowserUtils.waitForClickablility(hearthBtn_Loc,5);
         hearthBtn_Loc.click();
-        BrowserUtils.waitFor(4);
+        BrowserUtils.waitFor(1);
     }
 
     public void closePopUp(){
