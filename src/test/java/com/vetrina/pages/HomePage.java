@@ -33,9 +33,9 @@ public class HomePage extends BasePage{
     }
 
     public static void checkHomePage(){
-        String expectedUrl ="https://www.vetrinaturkiye.com/";
-        String actualUrl = Driver.get().getCurrentUrl();
-        Assert.assertEquals(expectedUrl,actualUrl);
+        String expectedTitle ="Vetrina";
+        String actualTitle = Driver.get().getTitle();
+        Assert.assertEquals(expectedTitle,actualTitle);
     }
 
     public void searchBox(String string){

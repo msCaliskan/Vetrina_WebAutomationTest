@@ -134,10 +134,6 @@ public class StepDefinitions {
         loginPage.invalidPasswordCheck();
     }
 
-    @And("The user clicks Cart button")
-    public void theUserClicksCartButton() {
-        checkoutPage.cartButton();
-    }
     @And("The user enters wrong old password")
     public void theUserEntersWrongOldPassword() {
         changePasswordPage.wrongOldPassword();

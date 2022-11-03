@@ -24,8 +24,6 @@ public class CheckoutPage extends BasePage{
 
     @FindBy(xpath = "//*[@id='isDataPolicyConfirmed']") public WebElement onBilgilendirme_Loc;
 
-    @FindBy(css = "#miniCart") public WebElement cartButton_Loc;
-
 
     public void invalidCard(){
         kartNo_Loc.sendKeys("4444444444444444");
@@ -66,8 +64,4 @@ public class CheckoutPage extends BasePage{
         BrowserUtils.waitFor(1);
     }
 
-    public void cartButton(){
-        BrowserUtils.waitFor(1);
-        cartButton_Loc.click();
-    }
 }
