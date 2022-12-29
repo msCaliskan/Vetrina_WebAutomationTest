@@ -15,7 +15,7 @@ public class CategoryAndProductPage extends BasePage {
 
     @FindBy(xpath = "//*[contains(@class,'MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter')]") public List<WebElement> product_Loc;
 
-    @FindBy(xpath = "//button[contains(@class, 'MuiButtonBase-root has-stock')]") public List<WebElement> sizeList_Loc;
+    @FindBy(xpath = "//button[contains(@class, 'has-stock')]") public List<WebElement> sizeList_Loc;
 
     @FindBy(xpath = "//button[contains(@aria-label,'add-to-favorites')]") public WebElement hearthBtn_Loc;
 
