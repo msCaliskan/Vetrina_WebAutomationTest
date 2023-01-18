@@ -28,6 +28,8 @@ public abstract class BasePage {
         return msg_Loc;
     }
 
+
+
     public static void clickButton(String button){
     String button_Loc = "//*[text()='"+button+"']";
     BrowserUtils.waitForClickablility(Driver.get().findElement(By.xpath(button_Loc)),5);
