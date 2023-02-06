@@ -7,8 +7,8 @@ Feature: Desktop | Add to basket
   And The user clicks login button
   When The user enters valid credentials
   And The user clicks "Giriş Yap" buttonn
-  And The user navigates to "Erkek" "Espadril" category
-  When The user verifies redirected to "/erkek-ayakkabi-espadril" page
+  And The user navigates to "Kadın" "Loafer" category
+  When The user verifies redirected to "/kadin-ayakkabi-loafer" page
   And The user clicks any product
   And The user chooses size
   And The user clicks "SEPETE EKLE" button
